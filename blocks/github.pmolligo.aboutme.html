@@ -20,7 +20,7 @@
 {{end}}
 {{ $person := $person_page.Params }}
 {{ $avatar := ($person_page.Resources.ByType "image").GetMatch "*avatar*" }}
-{{ $avatar_shape := site.Params.features.avatar.shape | default "square" }}
+{{ $avatar_shape := site.Params.features.avatar.shape | default "circle" }}
 
 <div id="profile">
 
