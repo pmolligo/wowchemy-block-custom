@@ -1,4 +1,4 @@
-{{/* Wowchemy Blocks: About - avatar variation */}}
+{{/* Wowchemy Blocks: About - ovatar variation */}}
 {{/* Documentation: https://wowchemy.com/blocks/ */}}
 {{/* License: https://github.com/wowchemy/wowchemy-hugo-themes/blob/main/LICENSE.md */}}
 
@@ -19,13 +19,18 @@
   {{ errorf "Could not find an author page at `%s`. Please check the value of `author` in your About widget and create an associated author page if one does not already exist. See https://wowchemy.com/docs/page-builder/#about " $person_page_path }}
 {{end}}
 {{ $person := $person_page.Params }}
-{{ $avatar := ($person_page.Resources.ByType "image").GetMatch "*avatar*" }}
-{{ $avatar_shape := site.Params.features.avatar.shape | default "square" }}
+{{ $ovatar := ($person_page.Resources.ByType "image").GetMatch "*ovatar*" }}
+{{ $ovatar_shape := site.Params.features.ovatar.shape | default "square" }}
 
 <div id="profile">
 
-  {{ if $avatar }}
-  
+  {{ if $ovatar }}
+  <div class="ovatar-wrapper">
+    {{ $ovatar_image := $ovatar.Fill "150x150 Center" }}
+    <img class="ovatar {{if eq $ovatar_shape "square"}}ovatar-square{{else}}ovatar-circle{{end}}" src="{{ $ovatar_image.RelPermalink }}" alt="{{$person_page.Title}}"
+         width="{{ $ovatar_image.Width }}" height="{{ $ovatar_image.Height }}">
+    {{with $person.status.icon}}<span class="ovatar-emoji">{{.|emojify}}</span>{{end}}
+  </div>
   {{ end }}
 
   <div class="portrait-title">
