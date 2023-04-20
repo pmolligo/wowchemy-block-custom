@@ -24,15 +24,7 @@
 
 <div id="profile">
 
-  {{ if $ovatar }}
-  <div class="ovatar-wrapper">
-    {{ $ovatar_image := $ovatar.Fill "150x150 Center" }}
-    <img class="ovatar {{if eq $ovatar_shape "square"}}ovatar-square{{else}}ovatar-circle{{end}}" src="{{ $ovatar_image.RelPermalink }}" alt="{{$person_page.Title}}"
-         width="{{ $ovatar_image.Width }}" height="{{ $ovatar_image.Height }}">
-    {{with $person.status.icon}}<span class="ovatar-emoji">{{.|emojify}}</span>{{end}}
-  </div>
-  {{ end }}
-
+  
   <div class="portrait-title">
 
     <h2>
